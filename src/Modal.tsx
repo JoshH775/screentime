@@ -53,11 +53,11 @@ export default function Modal({ media, onClose, onSave }: Props) {
                         <>
                             <label>
                                 Season:
-                                <input type="number" value={season} onChange={(e) => setSeason(parseInt(e.target.value))} />
+                                <input type="number" value={season} min="1" onChange={(e) => setSeason(parseInt(e.target.value))} />
                             </label>
                             <label>
                                 Episode:
-                                <input type="number" value={episode} onChange={(e) => setEpisode(parseInt(e.target.value))} />
+                                <input type="number" value={episode} min="1" onChange={(e) => setEpisode(parseInt(e.target.value))} />
                             </label>
                         </>
                     )}
