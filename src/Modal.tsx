@@ -52,12 +52,12 @@ export default function Modal({ media, onClose, onSave }: Props) {
                     {mediaIsShow && (
                         <>
                             <label>
-                                Episode:
-                                <input type="number" value={episode} onChange={(e) => setEpisode(parseInt(e.target.value))} />
-                            </label>
-                            <label>
                                 Season:
                                 <input type="number" value={season} onChange={(e) => setSeason(parseInt(e.target.value))} />
+                            </label>
+                            <label>
+                                Episode:
+                                <input type="number" value={episode} onChange={(e) => setEpisode(parseInt(e.target.value))} />
                             </label>
                         </>
                     )}
