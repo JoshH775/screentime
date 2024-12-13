@@ -52,3 +52,9 @@ body {
     color: #333;
     cursor: pointer;
   }
+
+  .buttons {
+    display: flex;
+    gap: 4px;
+    margin-top: 6px;
+  }

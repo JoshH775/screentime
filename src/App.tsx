@@ -76,8 +76,11 @@ export default function App() {
                 {m.hours}h {m.minutes}m {m.seconds}s
               </div>
             )}
-            <button onClick={() => handleEdit(i)}>Edit</button>
-            <button onClick={() => handleDelete(i)}>Delete</button>
+            <div className="buttons">
+              <button onClick={() => handleEdit(i)}>Edit</button>
+              <button onClick={() => handleDelete(i)}>Delete</button>
+            </div>
+            
           </li>
         ))}
       </ul>
