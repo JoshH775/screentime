@@ -1,0 +1,13 @@
+{
+    "name": "Screentime",
+    "description": "Track your location in TV shows and movies on sites that don't support it.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "index.html"
+    },
+
+    "permissions": [
+      "storage"
+    ]
+  }
