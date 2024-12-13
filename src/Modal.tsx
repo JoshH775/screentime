@@ -32,6 +32,7 @@ export default function Modal({ media, onClose, onSave }: Props) {
         }
         onSave(updatedMedia)
     }
+    
 
     return (
         <div className="modal">

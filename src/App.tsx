@@ -52,6 +52,13 @@ export default function App() {
     setShowModal(true)
   }
 
+  const handleDelete = async (index: number) => {
+    const newMedia = [...media]
+    newMedia.splice(index, 1)
+    setMedia(newMedia)
+    await chrome.storage.sync.set({ media: newMedia })
+  }
+
   return (
     <div className="main">
       {loading && <Loading />}
@@ -70,6 +77,7 @@ export default function App() {
               </div>
             )}
             <button onClick={() => handleEdit(i)}>Edit</button>
+            <button onClick={() => handleDelete(i)}>Delete</button>
           </li>
         ))}
       </ul>
