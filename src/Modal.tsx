@@ -11,14 +11,14 @@ type Props = {
 
 export default function Modal({ media, onClose, onSave }: Props) {
 
-
     const [mediaIsShow, setMediaIsShow] = useState(media && !isShow(media) ? false : true)
     const [title, setTitle] = useState(media?.title || "")
     const [hours, setHours] = useState(media?.hours || 0)
     const [minutes, setMinutes] = useState(media?.minutes || 0)
     const [seconds, setSeconds] = useState(media?.seconds || 0)
-    const [episode, setEpisode] = useState(media && isShow(media) ? media.season : 0)
+    const [episode, setEpisode] = useState(media && isShow(media) ? media.episode : 0)
     const [season, setSeason] = useState(media && isShow(media) ? media.season : 0)
+    const [link, setLink] = useState(media?.link || "")
 
     const handleSave = () => {
         const updatedMedia: Media = {
@@ -29,10 +29,10 @@ export default function Modal({ media, onClose, onSave }: Props) {
             seconds,
             episode: mediaIsShow ? episode : undefined,
             season: mediaIsShow ? season : undefined,
+            link,
         }
         onSave(updatedMedia)
     }
-    
 
     return (
         <div className="modal">
@@ -68,13 +68,17 @@ export default function Modal({ media, onClose, onSave }: Props) {
                         </label>
                         <label>
                             Minutes:
-                            <input type="number" value={minutes} onChange={(e) => setMinutes(parseInt(e.target.value))} />
+                            <input type="number" value={minutes} onChange={(e) => setMinutes(parseInt(e.target.value))} max={59}/>
                         </label>
                         <label>
                             Seconds:
-                            <input type="number" value={seconds} onChange={(e) => setSeconds(parseInt(e.target.value))} />
+                            <input type="number" value={seconds} onChange={(e) => setSeconds(parseInt(e.target.value))} max={59}/>
                         </label>
                     </div>
+                    <label>
+                        Link:
+                        <input type="text" value={link} onChange={(e) => setLink(e.target.value)} />
+                    </label>
                 </div>
                 <div className="modal-footer">
                     <button onClick={handleSave}>Save</button>
