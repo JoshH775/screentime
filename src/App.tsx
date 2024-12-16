@@ -77,8 +77,16 @@ export default function App() {
               </div>
             )}
             <div className="buttons">
-              <button onClick={() => handleEdit(i)}>Edit</button>
-              <button onClick={() => handleDelete(i)}>Delete</button>
+              <div>
+                <button onClick={() => handleEdit(i)}>Edit</button>
+                <button onClick={() => handleDelete(i)}>Delete</button>
+              </div>
+
+              {m.link && (
+                <a href={m.link} target="_blank" rel="noreferrer" style={{textDecoration: 'none'}}>
+                  Watch
+                </a>
+              )}
             </div>
             
           </li>
@@ -109,5 +117,5 @@ export type Show = {
   seconds: number
 }
 
-export type Media = Movie | Show
+export type Media = (Movie | Show) & { link?: string }
 
